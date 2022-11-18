@@ -27,7 +27,7 @@ const Header = () => {
         <button hidden type='submit' />
       </form>
 
-      <div className='text-gray-500 space-x-2 items-center hidden lg:inline-flex '>
+      <div className='text-gray-500 space-x-2 items-center hidden lg:inline-flex mx-2 '>
         <SparklesIcon className='icon'/>
         <GlobeIcon className='icon'/>
         <VideoCameraIcon className='icon'/>
@@ -40,6 +40,14 @@ const Header = () => {
 
       <div className='ml-5 flex items-center lg:hidden'>
         <MenuIcon className='icon'/>
+      </div>
+
+      {/* Sign in / Sign out button */}
+      <div className='hidden lg:flex items-center space-x-2 border border-gray p-2 cursor-pointer'>
+        <div className='relative h-5 w-5 flex-shrink-0'>
+        <Image fill src="https://links.papareact.com/23l" alt="" />
+        </div>
+        <p className='text-gray-400'>Sign In</p>
       </div>
     </div>
   )
