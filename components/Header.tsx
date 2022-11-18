@@ -1,8 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import { BeakerIcon, ChevronDownIcon, HomeIcon, MenuIcon, SearchIcon } from '@heroicons/react/solid'
 import { StarIcon, BellIcon, ChatIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon, GlobeIcon } from '@heroicons/react/outline'
 const Header = () => {
+  const { data: session } = useSession()
   return (
     <div className='sticky top-0 flex z-50 bg-white px-4 py-2 shadow-sm'>
       <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer'>
@@ -28,27 +30,38 @@ const Header = () => {
       </form>
 
       <div className='text-gray-500 space-x-2 items-center hidden lg:inline-flex mx-2 '>
-        <SparklesIcon className='icon'/>
-        <GlobeIcon className='icon'/>
-        <VideoCameraIcon className='icon'/>
+        <SparklesIcon className='icon' />
+        <GlobeIcon className='icon' />
+        <VideoCameraIcon className='icon' />
         <hr className='h-10 border boder-gray-100' />
-        <ChatIcon className='icon'/>
-        <BellIcon className='icon'/>
-        <PlusIcon className='icon'/>
-        <SpeakerphoneIcon className='icon'/>
+        <ChatIcon className='icon' />
+        <BellIcon className='icon' />
+        <PlusIcon className='icon' />
+        <SpeakerphoneIcon className='icon' />
       </div>
 
       <div className='ml-5 flex items-center lg:hidden'>
-        <MenuIcon className='icon'/>
+        <MenuIcon className='icon' />
       </div>
 
       {/* Sign in / Sign out button */}
-      <div className='hidden lg:flex items-center space-x-2 border border-gray p-2 cursor-pointer'>
-        <div className='relative h-5 w-5 flex-shrink-0'>
-        <Image fill src="https://links.papareact.com/23l" alt="" />
+      {session ? (
+        <div onClick={() => signOut()} className='hidden lg:flex items-center space-x-2 border border-gray p-2 cursor-pointer'>
+          <div className='relative h-5 w-5 flex-shrink-0'>
+            <Image fill src="https://links.papareact.com/23l" alt="" />
+          </div>
+          <p className='text-gray-400'>Sign Out</p>
         </div>
-        <p className='text-gray-400'>Sign In</p>
-      </div>
+
+      ) :
+        <div onClick={() => signIn()} className='hidden lg:flex items-center space-x-2 border border-gray p-2 cursor-pointer'>
+          <div className='relative h-5 w-5 flex-shrink-0'>
+            <Image fill src="https://links.papareact.com/23l" alt="" />
+          </div>
+          <p className='text-gray-400'>Sign In</p>
+        </div>
+
+      }
     </div>
   )
 }
