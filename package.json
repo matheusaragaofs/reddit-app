@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "stepzen": "stepzen start"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
@@ -13,7 +14,8 @@
     "next-auth": "^4.16.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.39.4"
+    "react-hook-form": "^7.39.4",
+    "react-hot-toast": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
