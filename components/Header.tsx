@@ -7,7 +7,7 @@ const Header = () => {
   const { data: session } = useSession()
   return (
     <div className='sticky top-0 flex z-50 bg-white px-4 py-2 shadow-sm'>
-      <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer'>
+      <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer self-center'>
         <Image
           style={{ objectFit: 'contain', }}
           src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
