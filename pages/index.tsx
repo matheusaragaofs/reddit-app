@@ -6,13 +6,12 @@ import PostBox from '../components/PostBox'
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className="max-w-5xl my-7 mx-auto">
       <Head>
         <title>Reddit App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* PostBox */}
-      <PostBox/>
+      <PostBox />
       <div>
         {/* FEED */}
       </div>
