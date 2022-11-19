@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
+import PostBox from '../components/PostBox'
 
 const Home: NextPage = () => {
   return (
@@ -10,9 +11,12 @@ const Home: NextPage = () => {
         <title>Reddit App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='h-screen bg-black w-30'>t</div>
-      <div className='h-screen bg-red-500 w-30'>t</div>
-    </div> 
+      {/* PostBox */}
+      <PostBox/>
+      <div>
+        {/* FEED */}
+      </div>
+    </div>
   )
 }
 
