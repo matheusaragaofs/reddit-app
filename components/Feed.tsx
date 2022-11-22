@@ -7,7 +7,7 @@ const Feed = () => {
     const { data, error } = useQuery(GET_ALL_POSTS)
     const posts: Post[] = data?.getPostList
     return (
-        <div className=''>
+        <div className='mt-5 space-y-4 w-full'>
             {posts?.map((post)=> (
                 <Post key={post.id} post={post}/>
             ))}

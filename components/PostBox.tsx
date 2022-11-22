@@ -5,7 +5,7 @@ import Avatar from './Avatar'
 import { useForm } from "react-hook-form";
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_POST, ADD_SUBREDDIT } from '../graphql/mutations'
-import { GET_SUBREDDIT_BY_TOPIC } from '../graphql/queries'
+import { GET_ALL_POSTS, GET_SUBREDDIT_BY_TOPIC } from '../graphql/queries'
 import { toast } from 'react-hot-toast'
 import client from '../apollo-client';
 type FormData = {
@@ -18,7 +18,9 @@ const PostBox = () => {
     const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false)
     const { data: session } = useSession()
 
-    const [addPost] = useMutation(ADD_POST)
+    const [addPost] = useMutation(ADD_POST, {
+        refetchQueries: [GET_ALL_POSTS, 'getPostList']
+    })
     const [addSubreddit] = useMutation(ADD_SUBREDDIT)
 
     const { register, setValue, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
