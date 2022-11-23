@@ -3,17 +3,21 @@ import Image from 'next/image'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { BeakerIcon, ChevronDownIcon, HomeIcon, MenuIcon, SearchIcon } from '@heroicons/react/solid'
 import { StarIcon, BellIcon, ChatIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon, GlobeIcon } from '@heroicons/react/outline'
+import Link from 'next/link'
 const Header = () => {
+
   const { data: session } = useSession()
   return (
     <div className='sticky top-0 flex z-50 bg-white px-4 py-2 shadow-sm'>
       <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer self-center'>
-        <Image
-          style={{ objectFit: 'contain', }}
-          src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
-          alt='image'
-          fill
-        />
+        <Link href='/'>
+          <Image
+            style={{ objectFit: 'contain', }}
+            src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
+            alt='image'
+            fill
+          />
+        </Link>
       </div>
 
       <div className='flex items-center mx-7 xl:min-w-[300px]'>
@@ -55,7 +59,7 @@ const Header = () => {
             <p className='text-gray-400'>1 Karma</p>
           </div>
 
-          <ChevronDownIcon className='h-5 flex-shrink-0 text-gray-400'/>
+          <ChevronDownIcon className='h-5 flex-shrink-0 text-gray-400' />
         </div>
 
       ) :
