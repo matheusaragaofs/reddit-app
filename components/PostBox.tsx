@@ -20,7 +20,6 @@ type Props = {
 const PostBox = ({ subreddit }: Props) => {
     const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false)
     const { data: session } = useSession()
-    console.log('subreddit:', subreddit)
 
     const [addPost] = useMutation(ADD_POST, {
         refetchQueries: [GET_ALL_POSTS, 'getPostList']

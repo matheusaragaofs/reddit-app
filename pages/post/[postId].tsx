@@ -29,7 +29,6 @@ const PostPage = () => {
     const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<FormData>()
     const onSubmit: SubmitHandler<FormData> = async (data) => {
         // post comment here...
-        console.log('data:', data)
         const notification = toast.loading('Posting your comment...')
 
         await addComment({
@@ -56,7 +55,9 @@ const PostPage = () => {
                         {...register('comment')}
                         disabled={!session}
                         className='h-24 rounded-mg border border-gray-200 p-2 pl-4 outline-none disabled:bg-gray-50' placeholder={session ? 'What are your thoughts?' : 'Please sign in to comment'}></textarea>
-                    <button className='bg-red-500 rounded-full font-semibold text-white disabled:bg-gray-200 p-3' type='submit'> Comment</button>
+                    <button
+                    disabled={!session}
+                    className='bg-red-500 rounded-full font-semibold text-white disabled:bg-gray-200 p-3' type='submit'> Comment</button>
                 </form>
             </div>
 

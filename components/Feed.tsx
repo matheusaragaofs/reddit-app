@@ -8,13 +8,11 @@ type Props = {
     topic?: string
 }
 const Feed = ({ topic }: Props) => {
-    console.log('FEED topic:', topic)
     const { data, error } = !topic ? useQuery(GET_ALL_POSTS) : useQuery(GET_ALL_POSTS_BY_TOPIC, {
         variables: {
             topic
         }
     })
-    console.log("t")
     const posts: Post[] = !topic ? data?.getPostList : data?.getPostListByTopic
     if (!posts) return (<div className='h-screen flex items-center justify-center'><DotPulse /></div>)
 
