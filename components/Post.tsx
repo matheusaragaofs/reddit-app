@@ -3,13 +3,13 @@ import React from 'react'
 import Avatar from './Avatar'
 import TimeAgo from 'react-timeago'
 import Link from 'next/link'
-import { DotPulse } from '@uiball/loaders'
+import { JellyTriangle } from '@uiball/loaders'
 type Props = {
     post: Post
 }
 const Post = ({ post }: Props) => {
 
-    if (!post) return (<div className='h-screen flex items-center justify-center'><DotPulse /></div>)
+    if (!post) return (<div className=' w-full  flex items-center justify-center p-10 text-xl'><JellyTriangle size={50} color="#ff4504" /></div>)
 
     return (
         <Link href={`/post/${post.id}`}>

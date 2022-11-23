@@ -1,4 +1,4 @@
-type Comment = {
+type PostComment = {
     id: number
     text: string
     post_id: number
@@ -30,6 +30,6 @@ type Post = {
     title: string
     username: string
     votes: Vote[]
-    comments: Comment[]
+    comments: PostComment[]
     subreddit: Subreddit[]
 }

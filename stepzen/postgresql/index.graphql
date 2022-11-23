@@ -235,19 +235,19 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
-  insertComment(
-    username: String
-    post_id: ID
-    text: String
-    created_at: DateTime
-  ): Comment
-    @dbquery(
-      type: "postgresql"
-      schema: "public"
-      table: "comment"
-      dml: INSERT
-      configuration: "postgresql_config"
-    )
+  # insertComment(
+  #   username: String
+  #   post_id: ID
+  #   text: String
+  #   created_at: DateTime
+  # ): Comment
+  #   @dbquery(
+  #     type: "postgresql"
+  #     schema: "public"
+  #     table: "comment"
+  #     dml: INSERT
+  #     configuration: "postgresql_config"
+  #   )
   " Mutations for type 'Post' "
   deletePost(
     body: String!
@@ -312,6 +312,17 @@ type Mutation {
       dml: DELETE
       configuration: "postgresql_config"
     )
+
+
+  insertComment(post_id: ID!, username: String!, text: String!): Comment
+  @dbquery(
+    type: "postgresql"
+    schema: "public"
+    table:"comment"
+    dml: INSERT
+    configuration: "postgresql_config"
+  )
+
   insertVote(
     username: String
     post_id: ID
